@@ -24,28 +24,33 @@ if __name__ == "__main__":
             viewer.opt.flags[mujoco.mjtVisFlag.mjVIS_CONTACTPOINT] = True
             viewer.opt.flags[mujoco.mjtVisFlag.mjVIS_CONTACTFORCE] = True
 
-             
         while viewer.is_running():
             t = time.monotonic()
             st = np.sin(t)
 
             # set control reference relative to initial(homing) control setpoints
-            robot.set_relative_ctrl(['hip_pitch_1','knee_pitch_1'],[ st*0.2, -st*0.4])
-            robot.set_relative_ctrl(['hip_pitch_2','knee_pitch_2'],[ st*0.2, -st*0.4])
-            robot.set_relative_ctrl(['hip_pitch_3','knee_pitch_3'],[-st*0.2, +st*0.4])
-            robot.set_relative_ctrl(['hip_pitch_4','knee_pitch_4'],[-st*0.2, +st*0.4])
+            robot.set_relative_ctrl(
+                ["hip_pitch_1", "knee_pitch_1"], [st * 0.2, -st * 0.4]
+            )
+            robot.set_relative_ctrl(
+                ["hip_pitch_2", "knee_pitch_2"], [st * 0.2, -st * 0.4]
+            )
+            robot.set_relative_ctrl(
+                ["hip_pitch_3", "knee_pitch_3"], [-st * 0.2, +st * 0.4]
+            )
+            robot.set_relative_ctrl(
+                ["hip_pitch_4", "knee_pitch_4"], [-st * 0.2, +st * 0.4]
+            )
 
-            # set absolute control reference 
+            # set absolute control reference
             # robot.set_ctrl(['hip_pitch_1','hip_pitch_3','hip_pitch_2','hip_pitch_4'],[-st*0.15]*4)
             # robot.set_ctrl(['knee_pitch_1','knee_pitch_3','knee_pitch_2','knee_pitch_4'],[st*0.3]*4)
 
             # step physics
             robot.step()
 
-
             # syncronize viewer
             viewer.sync()
             time_until_next_step = model.opt.timestep - (time.monotonic() - t)
             if time_until_next_step > 0:
                 time.sleep(time_until_next_step)
-                

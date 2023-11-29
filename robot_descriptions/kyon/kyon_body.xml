@@ -1,157 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
     Kyon MJCF
     @author siddharth deore
     @email siddharth.deore@iit.it
 -->
 <mujoco model="kyon">
-  <compiler angle="radian" autolimits="true"/>
-  <option cone="elliptic" impratio="100"/>
-
-  <statistic meansize="0.177182" extent="1.68124" center="0 0 0.140619"/>
+  <compiler angle="radian" autolimits="true" />
+  <option cone="elliptic" impratio="100" />
+  <default>
+    <joint damping="50" armature="0.01" frictionloss="0.2" />
+    <position kp="1000" forcerange="-150.5 150.5" />
+  </default>
+  <statistic meansize="0.177182" extent="1.68124" center="0 0 0.140619" />
   <worldbody>
     <body name="pelvis">
-      <inertial pos="0 0 0" quat="0 0.707107 0 0.707107" mass="14" diaginertia="0.982917 0.793333 0.282917"/>
-      <joint name="reference" type="free" damping ="0" frictionloss="0"/>
-      <geom size="0.4 0.225 0.1" type="box"/>
+      <inertial pos="0 0 0" quat="0 0.707107 0 0.707107" mass="14" diaginertia="0.982917 0.793333 0.282917" />
+      <joint name="reference" type="free" damping="0" frictionloss="0" />
+      <geom size="0.4 0.225 0.1" type="box" />
       <body name="shoulder_yaw_motor_1" pos="0.3 0.175 0.1">
-        <inertial pos="0 0 0.0166667" quat="0.707107 0 0 0.707107" mass="2.4" diaginertia="0.005187 0.00487367 0.00390067"/>
-        <joint name="shoulder_yaw_1" pos="0 0 0" axis="0 0 1" range="-3.312 3.312"/>
-        <geom size="0.07 0.05" type="cylinder" rgba="0.1 0.1 0.1 1"/>
-        <geom size="0.07 0.05" pos="0 0 0.05" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
+        <inertial pos="0 0 0.0166667" quat="0.707107 0 0 0.707107" mass="2.4" diaginertia="0.005187 0.00487367 0.00390067" />
+        <joint name="shoulder_yaw_1" pos="0 0 0" axis="0 0 1" range="-3.312 3.312" />
+        <geom size="0.07 0.05" type="cylinder" rgba="0.1 0.1 0.1 1" />
+        <geom size="0.07 0.05" pos="0 0 0.05" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
         <body name="lower_arm_1" pos="0 0 0.05" quat="0.5 -0.5 -0.5 -0.5">
-          <inertial pos="0.231111 0 0" quat="0 0.707107 0 0.707107" mass="1.8" diaginertia="0.0227044 0.0223911 0.00331333"/>
-          <joint name="shoulder_pitch_1" pos="0 0 0" axis="0 0 1" range="-2.4056 2.4056"/>
-          <geom size="0.16 0.05 0.05" pos="0.16 0 0" type="box"/>
-          <geom size="0.07 0.05" pos="0.32 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
+          <inertial pos="0.231111 0 0" quat="0 0.707107 0 0.707107" mass="1.8" diaginertia="0.0227044 0.0223911 0.00331333" />
+          <joint name="shoulder_pitch_1" pos="0 0 0" axis="0 0 1" range="-2.4056 2.4056" />
+          <geom size="0.16 0.05 0.05" pos="0.16 0 0" type="box" />
+          <geom size="0.07 0.05" pos="0.32 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
           <body name="upper_arm1_1" pos="0.32 0 0">
-            <inertial pos="0.2175 0 0" quat="0 0.707107 0 0.707107" mass="1.4" diaginertia="0.0152752 0.0150284 0.00161758"/>
-            <joint name="elbow_pitch_1" pos="0 0 0" axis="0 0 1" range="-2.4056 2.4056"/>
-            <geom size="0.15 0.025 0.025" pos="0.16 0 0" type="box"/>
-            <geom size="0.07 0.05" pos="0.3 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
+            <inertial pos="0.2175 0 0" quat="0 0.707107 0 0.707107" mass="1.4" diaginertia="0.0152752 0.0150284 0.00161758" />
+            <joint name="elbow_pitch_1" pos="0 0 0" axis="0 0 1" range="-2.4056 2.4056" />
+            <geom size="0.15 0.025 0.025" pos="0.16 0 0" type="box" />
+            <geom size="0.07 0.05" pos="0.3 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
             <body name="upper_arm2_1" pos="0.3 0 0">
-              <inertial pos="0.05 0 0" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.00208333 0.00208333 0.000833333"/>
-              <joint name="wrist_pitch_1" pos="0 0 0" axis="0 0 1" range="-2.4056 2.4056"/>
-              <geom size="0.05 0.025 0.025" pos="0.15 0 0" type="box"/>
+              <inertial pos="0.05 0 0" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.00208333 0.00208333 0.000833333" />
+              <joint name="wrist_pitch_1" pos="0 0 0" axis="0 0 1" range="-2.4056 2.4056" />
+              <geom size="0.05 0.025 0.025" pos="0.15 0 0" type="box" />
               <body name="wrist_1" pos="0.1 0 0" quat="0.707107 0 0.707107 0">
-                <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="0.63" diaginertia="0.0015435 0.00129675 0.00129675"/>
-                <joint name="wrist_yaw_1" pos="0 0 0" axis="0 0 1" range="-2.4056 2.4056"/>
-                <geom size="0.035 0.025" type="cylinder" rgba="0.1 0.1 0.1 1"/>
+                <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="0.63" diaginertia="0.0015435 0.00129675 0.00129675" />
+                <joint name="wrist_yaw_1" pos="0 0 0" axis="0 0 1" range="-2.4056 2.4056" />
+                <geom size="0.035 0.025" type="cylinder" rgba="0.1 0.1 0.1 1" />
               </body>
             </body>
           </body>
         </body>
       </body>
       <body name="shoulder_yaw_motor_2" pos="0.3 -0.175 0.1">
-        <inertial pos="0 0 0.0166667" quat="0.707107 0 0 0.707107" mass="2.4" diaginertia="0.005187 0.00487367 0.00390067"/>
-        <joint name="shoulder_yaw_2" pos="0 0 0" axis="0 0 1" range="-3.3458 3.3458"/>
-        <geom size="0.07 0.05" type="cylinder" rgba="0.1 0.1 0.1 1"/>
-        <geom size="0.07 0.05" pos="0 0 0.05" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
+        <inertial pos="0 0 0.0166667" quat="0.707107 0 0 0.707107" mass="2.4" diaginertia="0.005187 0.00487367 0.00390067" />
+        <joint name="shoulder_yaw_2" pos="0 0 0" axis="0 0 1" range="-3.3458 3.3458" />
+        <geom size="0.07 0.05" type="cylinder" rgba="0.1 0.1 0.1 1" />
+        <geom size="0.07 0.05" pos="0 0 0.05" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
         <body name="lower_arm_2" pos="0 0 0.05" quat="0.5 -0.5 -0.5 -0.5">
-          <inertial pos="0.231111 0 0" quat="0 0.707107 0 0.707107" mass="1.8" diaginertia="0.0227044 0.0223911 0.00331333"/>
-          <joint name="shoulder_pitch_2" pos="0 0 0" axis="0 0 1" range="-2.3266 2.3266"/>
-          <geom size="0.16 0.05 0.05" pos="0.16 0 0" type="box"/>
-          <geom size="0.07 0.05" pos="0.32 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
+          <inertial pos="0.231111 0 0" quat="0 0.707107 0 0.707107" mass="1.8" diaginertia="0.0227044 0.0223911 0.00331333" />
+          <joint name="shoulder_pitch_2" pos="0 0 0" axis="0 0 1" range="-2.3266 2.3266" />
+          <geom size="0.16 0.05 0.05" pos="0.16 0 0" type="box" />
+          <geom size="0.07 0.05" pos="0.32 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
           <body name="upper_arm1_2" pos="0.32 0 0">
-            <inertial pos="0.2175 0 0" quat="0 0.707107 0 0.707107" mass="1.4" diaginertia="0.0152752 0.0150284 0.00161758"/>
-            <joint name="elbow_pitch_2" pos="0 0 0" axis="0 0 1" range="-2.3266 2.3266"/>
-            <geom size="0.15 0.025 0.025" pos="0.16 0 0" type="box"/>
-            <geom size="0.07 0.05" pos="0.3 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
+            <inertial pos="0.2175 0 0" quat="0 0.707107 0 0.707107" mass="1.4" diaginertia="0.0152752 0.0150284 0.00161758" />
+            <joint name="elbow_pitch_2" pos="0 0 0" axis="0 0 1" range="-2.3266 2.3266" />
+            <geom size="0.15 0.025 0.025" pos="0.16 0 0" type="box" />
+            <geom size="0.07 0.05" pos="0.3 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
             <body name="upper_arm2_2" pos="0.3 0 0">
-              <inertial pos="0.05 0 0" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.00208333 0.00208333 0.000833333"/>
-              <joint name="wrist_pitch_2" pos="0 0 0" axis="0 0 1" range="-2.3266 2.3266"/>
-              <geom size="0.05 0.025 0.025" pos="0.15 0 0" type="box"/>
+              <inertial pos="0.05 0 0" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.00208333 0.00208333 0.000833333" />
+              <joint name="wrist_pitch_2" pos="0 0 0" axis="0 0 1" range="-2.3266 2.3266" />
+              <geom size="0.05 0.025 0.025" pos="0.15 0 0" type="box" />
               <body name="wrist_2" pos="0.1 0 0" quat="0.707107 0 0.707107 0">
-                <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="0.63" diaginertia="0.0015435 0.00129675 0.00129675"/>
-                <joint name="wrist_yaw_2" pos="0 0 0" axis="0 0 1" range="-2.3266 2.3266"/>
-                <geom size="0.035 0.025" type="cylinder" rgba="0.1 0.1 0.1 1"/>
+                <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="0.63" diaginertia="0.0015435 0.00129675 0.00129675" />
+                <joint name="wrist_yaw_2" pos="0 0 0" axis="0 0 1" range="-2.3266 2.3266" />
+                <geom size="0.035 0.025" type="cylinder" rgba="0.1 0.1 0.1 1" />
               </body>
             </body>
           </body>
         </body>
       </body>
       <body name="hip_roll_motor_1" pos="0.4 0.225 0" quat="0.707107 0 0.707107 0">
-        <inertial pos="0 0.0466667 0" quat="0.5 0.5 -0.5 0.5" mass="5.4" diaginertia="0.0119213 0.011561 0.00640167"/>
-        <joint name="hip_roll_1" pos="0 0 0" axis="0 0 1" range="-2.03 2.51"/>
-        <geom size="0.07 0.05" type="cylinder" rgba="0.1 0.1 0.1 1"/>
-        <geom size="0.07 0.05" pos="0 0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
-        <geom size="0.07 0.05" pos="0 0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
+        <inertial pos="0 0.0466667 0" quat="0.5 0.5 -0.5 0.5" mass="5.4" diaginertia="0.0119213 0.011561 0.00640167" />
+        <joint name="hip_roll_1" pos="0 0 0" axis="0 0 1" range="-2.03 2.51" />
+        <geom size="0.07 0.05" type="cylinder" rgba="0.1 0.1 0.1 1" />
+        <geom size="0.07 0.05" pos="0 0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
+        <geom size="0.07 0.05" pos="0 0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
         <body name="upper_leg_1" pos="0 0.07 0" quat="0.707107 -0.707107 0 0">
-          <inertial pos="0.175 0 0" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.0220833 0.0220833 0.00333333"/>
-          <joint name="hip_pitch_1" pos="0 0 0" axis="0 0 1" range="-2.4056 2.4056"/>
-          <geom size="0.175 0.05 0.05" pos="0.175 0 0" type="box" rgba="0.1 0.1 0.1 1"/>
+          <inertial pos="0.175 0 0" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.0220833 0.0220833 0.00333333" />
+          <joint name="hip_pitch_1" pos="0 0 0" axis="0 0 1" range="-2.4056 2.4056" />
+          <geom size="0.175 0.05 0.05" pos="0.175 0 0" type="box" rgba="0.1 0.1 0.1 1" />
           <body name="lower_leg_1" pos="0.35 0 0">
-            <inertial pos="0.163636 0 0" quat="0.5 0.5 0.5 0.5" mass="1.1" diaginertia="0.00992045 0.00992045 0.000583333"/>
-            <joint name="knee_pitch_1" pos="0 0 0" axis="0 0 1" range="-2.4056 2.4056"/>
-            <geom size="0.15 0.025 0.025" pos="0.15 0 0" type="box" rgba="0.1 0.1 0.1 1"/>
-            <geom size="0.05" pos="0.3 0 0"/>
+            <inertial pos="0.163636 0 0" quat="0.5 0.5 0.5 0.5" mass="1.1" diaginertia="0.00992045 0.00992045 0.000583333" />
+            <joint name="knee_pitch_1" pos="0 0 0" axis="0 0 1" range="-2.4056 2.4056" />
+            <geom size="0.15 0.025 0.025" pos="0.15 0 0" type="box" rgba="0.1 0.1 0.1 1" />
+            <geom size="0.05" pos="0.3 0 0" />
           </body>
         </body>
       </body>
       <body name="hip_roll_motor_2" pos="0.4 -0.225 0" quat="0.707107 0 0.707107 0">
-        <inertial pos="0 -0.0466667 0" quat="0.5 0.5 -0.5 0.5" mass="5.4" diaginertia="0.0119213 0.011561 0.00640167"/>
-        <joint name="hip_roll_2" pos="0 0 0" axis="0 0 1" range="-2.51 2.03"/>
-        <geom size="0.07 0.05" type="cylinder" rgba="0.1 0.1 0.1 1"/>
-        <geom size="0.07 0.05" pos="0 -0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
-        <geom size="0.07 0.05" pos="0 -0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
+        <inertial pos="0 -0.0466667 0" quat="0.5 0.5 -0.5 0.5" mass="5.4" diaginertia="0.0119213 0.011561 0.00640167" />
+        <joint name="hip_roll_2" pos="0 0 0" axis="0 0 1" range="-2.51 2.03" />
+        <geom size="0.07 0.05" type="cylinder" rgba="0.1 0.1 0.1 1" />
+        <geom size="0.07 0.05" pos="0 -0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
+        <geom size="0.07 0.05" pos="0 -0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
         <body name="upper_leg_2" pos="0 -0.07 0" quat="0.707107 -0.707107 0 0">
-          <inertial pos="0.175 0 0" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.0220833 0.0220833 0.00333333"/>
-          <joint name="hip_pitch_2" pos="0 0 0" axis="0 0 1" range="-2.3266 2.3266"/>
-          <geom size="0.175 0.05 0.05" pos="0.175 0 0" type="box" rgba="0.1 0.1 0.1 1"/>
+          <inertial pos="0.175 0 0" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.0220833 0.0220833 0.00333333" />
+          <joint name="hip_pitch_2" pos="0 0 0" axis="0 0 1" range="-2.3266 2.3266" />
+          <geom size="0.175 0.05 0.05" pos="0.175 0 0" type="box" rgba="0.1 0.1 0.1 1" />
           <body name="lower_leg_2" pos="0.35 0 0">
-            <inertial pos="0.163636 0 0" quat="0.5 0.5 0.5 0.5" mass="1.1" diaginertia="0.00992045 0.00992045 0.000583333"/>
-            <joint name="knee_pitch_2" pos="0 0 0" axis="0 0 1" range="-2.3266 2.3266"/>
-            <geom size="0.15 0.025 0.025" pos="0.15 0 0" type="box" rgba="0.1 0.1 0.1 1"/>
-            <geom size="0.05" pos="0.3 0 0"/>
+            <inertial pos="0.163636 0 0" quat="0.5 0.5 0.5 0.5" mass="1.1" diaginertia="0.00992045 0.00992045 0.000583333" />
+            <joint name="knee_pitch_2" pos="0 0 0" axis="0 0 1" range="-2.3266 2.3266" />
+            <geom size="0.15 0.025 0.025" pos="0.15 0 0" type="box" rgba="0.1 0.1 0.1 1" />
+            <geom size="0.05" pos="0.3 0 0" />
           </body>
         </body>
       </body>
       <body name="hip_roll_motor_3" pos="-0.4 0.225 0" quat="0.707107 0 0.707107 0">
-        <inertial pos="0 0.0466667 0" quat="0.5 0.5 -0.5 0.5" mass="5.4" diaginertia="0.0119213 0.011561 0.00640167"/>
-        <joint name="hip_roll_3" pos="0 0 0" axis="0 0 1" range="-2.51 2.03"/>
-        <geom size="0.07 0.05" type="cylinder" rgba="0.1 0.1 0.1 1"/>
-        <geom size="0.07 0.05" pos="0 0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
-        <geom size="0.07 0.05" pos="0 0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
+        <inertial pos="0 0.0466667 0" quat="0.5 0.5 -0.5 0.5" mass="5.4" diaginertia="0.0119213 0.011561 0.00640167" />
+        <joint name="hip_roll_3" pos="0 0 0" axis="0 0 1" range="-2.51 2.03" />
+        <geom size="0.07 0.05" type="cylinder" rgba="0.1 0.1 0.1 1" />
+        <geom size="0.07 0.05" pos="0 0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
+        <geom size="0.07 0.05" pos="0 0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
         <body name="upper_leg_3" pos="0 0.07 0" quat="0.707107 -0.707107 0 0">
-          <inertial pos="0.175 0 0" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.0220833 0.0220833 0.00333333"/>
-          <joint name="hip_pitch_3" pos="0 0 0" axis="0 0 1" range="-2.4696 2.4696"/>
-          <geom size="0.175 0.05 0.05" pos="0.175 0 0" type="box" rgba="0.1 0.1 0.1 1"/>
+          <inertial pos="0.175 0 0" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.0220833 0.0220833 0.00333333" />
+          <joint name="hip_pitch_3" pos="0 0 0" axis="0 0 1" range="-2.4696 2.4696" />
+          <geom size="0.175 0.05 0.05" pos="0.175 0 0" type="box" rgba="0.1 0.1 0.1 1" />
           <body name="lower_leg_3" pos="0.35 0 0">
-            <inertial pos="0.163636 0 0" quat="0.5 0.5 0.5 0.5" mass="1.1" diaginertia="0.00992045 0.00992045 0.000583333"/>
-            <joint name="knee_pitch_3" pos="0 0 0" axis="0 0 1" range="-2.4696 2.4696"/>
-            <geom size="0.15 0.025 0.025" pos="0.15 0 0" type="box" rgba="0.1 0.1 0.1 1"/>
-            <geom size="0.05" pos="0.3 0 0"/>
+            <inertial pos="0.163636 0 0" quat="0.5 0.5 0.5 0.5" mass="1.1" diaginertia="0.00992045 0.00992045 0.000583333" />
+            <joint name="knee_pitch_3" pos="0 0 0" axis="0 0 1" range="-2.4696 2.4696" />
+            <geom size="0.15 0.025 0.025" pos="0.15 0 0" type="box" rgba="0.1 0.1 0.1 1" />
+            <geom size="0.05" pos="0.3 0 0" />
           </body>
         </body>
       </body>
       <body name="hip_roll_motor_4" pos="-0.4 -0.225 0" quat="0.707107 0 0.707107 0">
-        <inertial pos="0 -0.0466667 0" quat="0.5 0.5 -0.5 0.5" mass="5.4" diaginertia="0.0119213 0.011561 0.00640167"/>
-        <joint name="hip_roll_4" pos="0 0 0" axis="0 0 1" range="-2.03 2.51"/>
-        <geom size="0.07 0.05" type="cylinder" rgba="0.1 0.1 0.1 1"/>
-        <geom size="0.07 0.05" pos="0 -0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
-        <geom size="0.07 0.05" pos="0 -0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1"/>
+        <inertial pos="0 -0.0466667 0" quat="0.5 0.5 -0.5 0.5" mass="5.4" diaginertia="0.0119213 0.011561 0.00640167" />
+        <joint name="hip_roll_4" pos="0 0 0" axis="0 0 1" range="-2.03 2.51" />
+        <geom size="0.07 0.05" type="cylinder" rgba="0.1 0.1 0.1 1" />
+        <geom size="0.07 0.05" pos="0 -0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
+        <geom size="0.07 0.05" pos="0 -0.07 0" quat="0.707107 -0.707107 0 0" type="cylinder" rgba="0.1 0.1 0.1 1" />
         <body name="upper_leg_4" pos="0 -0.07 0" quat="0.707107 -0.707107 0 0">
-          <inertial pos="0.175 0 0" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.0220833 0.0220833 0.00333333"/>
-          <joint name="hip_pitch_4" pos="0 0 0" axis="0 0 1" range="-2.3426 2.3426"/>
-          <geom size="0.175 0.05 0.05" pos="0.175 0 0" type="box" rgba="0.1 0.1 0.1 1"/>
+          <inertial pos="0.175 0 0" quat="0.5 0.5 0.5 0.5" mass="2" diaginertia="0.0220833 0.0220833 0.00333333" />
+          <joint name="hip_pitch_4" pos="0 0 0" axis="0 0 1" range="-2.3426 2.3426" />
+          <geom size="0.175 0.05 0.05" pos="0.175 0 0" type="box" rgba="0.1 0.1 0.1 1" />
           <body name="lower_leg_4" pos="0.35 0 0">
-            <inertial pos="0.163636 0 0" quat="0.5 0.5 0.5 0.5" mass="1.1" diaginertia="0.00992045 0.00992045 0.000583333"/>
-            <joint name="knee_pitch_4" pos="0 0 0" axis="0 0 1" range="-2.3426 2.3426"/>
-            <geom size="0.15 0.025 0.025" pos="0.15 0 0" type="box" rgba="0.1 0.1 0.1 1"/>
-            <geom size="0.05" pos="0.3 0 0"/>
+            <inertial pos="0.163636 0 0" quat="0.5 0.5 0.5 0.5" mass="1.1" diaginertia="0.00992045 0.00992045 0.000583333" />
+            <joint name="knee_pitch_4" pos="0 0 0" axis="0 0 1" range="-2.3426 2.3426" />
+            <geom size="0.15 0.025 0.025" pos="0.15 0 0" type="box" rgba="0.1 0.1 0.1 1" />
+            <geom size="0.05" pos="0.3 0 0" />
           </body>
         </body>
       </body>
     </body>
   </worldbody>
   <contact>
-    <exclude body1="shoulder_yaw_motor_1" body2="hip_roll_motor_1"/>
-    <exclude body1="shoulder_yaw_motor_2" body2="hip_roll_motor_2"/>
-    <exclude body1="pelvis" body2="upper_leg_1"/>
-    <exclude body1="pelvis" body2="upper_leg_2"/>
-    <exclude body1="pelvis" body2="upper_leg_3"/>
-    <exclude body1="pelvis" body2="upper_leg_4"/>
+    <exclude body1="shoulder_yaw_motor_1" body2="hip_roll_motor_1" />
+    <exclude body1="shoulder_yaw_motor_2" body2="hip_roll_motor_2" />
+    <exclude body1="pelvis" body2="upper_leg_1" />
+    <exclude body1="pelvis" body2="upper_leg_2" />
+    <exclude body1="pelvis" body2="upper_leg_3" />
+    <exclude body1="pelvis" body2="upper_leg_4" />
   </contact>
   <keyframe>
-    <key qpos='0 0 0.6 1 0 0 0 0 -1.4 2.4 0.7 0 0 -1.4 2.4 0.7 0 0 0.55 -1.1 0 0.55 -1.1 0 0.55 -1.1 0 0.55 -1.1'/>
-  </keyframe>
+    <key qpos="0 0 -0.027 1 0 0 0 0 -1.4 2.4 0.7 0 0 -1.4 2.4 0.7 0 0 0.55 -1.1 0 0.55 -1.1 0 0.55 -1.1 0 0.55 -1.1" />
+</keyframe>
 </mujoco>

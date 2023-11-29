@@ -1,30 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <mujoco>
-
-    <include file="../scene.xml" />
-    <include file="kyon_body.xml" />
-
-    <actuator>
-        <position name="shoulder_yaw_1" joint="shoulder_yaw_1" ctrlrange="-3.312 3.312" />
-        <position name="shoulder_pitch_1" joint="shoulder_pitch_1" ctrlrange="-2.4056 2.4056" />
-        <position name="elbow_pitch_1" joint="elbow_pitch_1" ctrlrange="-2.4056 2.4056" />
-        <position name="wrist_pitch_1" joint="wrist_pitch_1" ctrlrange="-2.4056 2.4056" />
-        <position name="wrist_yaw_1" joint="wrist_yaw_1" ctrlrange="-2.4056 2.4056" />
-        <position name="shoulder_yaw_2" joint="shoulder_yaw_2" ctrlrange="-3.3458 3.3458" />
-        <position name="shoulder_pitch_2" joint="shoulder_pitch_2" ctrlrange="-2.3266 2.3266" />
-        <position name="elbow_pitch_2" joint="elbow_pitch_2" ctrlrange="-2.3266 2.3266" />
-        <position name="wrist_pitch_2" joint="wrist_pitch_2" ctrlrange="-2.3266 2.3266" />
-        <position name="wrist_yaw_2" joint="wrist_yaw_2" ctrlrange="-2.3266 2.3266" />
-        <position name="hip_roll_1" joint="hip_roll_1" ctrlrange="-2.03 2.51" />
-        <position name="hip_pitch_1" joint="hip_pitch_1" ctrlrange="-2.4056 2.4056" />
-        <position name="knee_pitch_1" joint="knee_pitch_1" ctrlrange="-2.4056 2.4056" />
-        <position name="hip_roll_2" joint="hip_roll_2" ctrlrange="-2.51 2.03" />
-        <position name="hip_pitch_2" joint="hip_pitch_2" ctrlrange="-2.3266 2.3266" />
-        <position name="knee_pitch_2" joint="knee_pitch_2" ctrlrange="-2.3266 2.3266" />
-        <position name="hip_roll_3" joint="hip_roll_3" ctrlrange="-2.51 2.03" />
-        <position name="hip_pitch_3" joint="hip_pitch_3" ctrlrange="-2.4696 2.4696" />
-        <position name="knee_pitch_3" joint="knee_pitch_3" ctrlrange="-2.4696 2.4696" />
-        <position name="hip_roll_4" joint="hip_roll_4" ctrlrange="-2.03 2.51" />
-        <position name="hip_pitch_4" joint="hip_pitch_4" ctrlrange="-2.3426 2.3426" />
-        <position name="knee_pitch_4" joint="knee_pitch_4" ctrlrange="-2.3426 2.3426" />
-    </actuator>
+  <include file="../scene.xml" />
+  <include file="kyon_body.xml" />
+  <actuator>
+    <position name="shoulder_yaw_1" joint="shoulder_yaw_1" ctrlrange="-3.312 3.312" />
+    <position name="shoulder_pitch_1" joint="shoulder_pitch_1" ctrlrange="-2.4056 2.4056" />
+    <position name="elbow_pitch_1" joint="elbow_pitch_1" ctrlrange="-2.4056 2.4056" />
+    <position name="wrist_pitch_1" joint="wrist_pitch_1" ctrlrange="-2.4056 2.4056" />
+    <position name="wrist_yaw_1" joint="wrist_yaw_1" ctrlrange="-2.4056 2.4056" />
+    <position name="shoulder_yaw_2" joint="shoulder_yaw_2" ctrlrange="-3.3458 3.3458" />
+    <position name="shoulder_pitch_2" joint="shoulder_pitch_2" ctrlrange="-2.3266 2.3266" />
+    <position name="elbow_pitch_2" joint="elbow_pitch_2" ctrlrange="-2.3266 2.3266" />
+    <position name="wrist_pitch_2" joint="wrist_pitch_2" ctrlrange="-2.3266 2.3266" />
+    <position name="wrist_yaw_2" joint="wrist_yaw_2" ctrlrange="-2.3266 2.3266" />
+    <position name="hip_roll_1" joint="hip_roll_1" ctrlrange="-2.03 2.51" />
+    <position name="hip_pitch_1" joint="hip_pitch_1" ctrlrange="-2.4056 2.4056" />
+    <position name="knee_pitch_1" joint="knee_pitch_1" ctrlrange="-2.4056 2.4056" />
+    <position name="hip_roll_2" joint="hip_roll_2" ctrlrange="-2.51 2.03" />
+    <position name="hip_pitch_2" joint="hip_pitch_2" ctrlrange="-2.3266 2.3266" />
+    <position name="knee_pitch_2" joint="knee_pitch_2" ctrlrange="-2.3266 2.3266" />
+    <position name="hip_roll_3" joint="hip_roll_3" ctrlrange="-2.51 2.03" />
+    <position name="hip_pitch_3" joint="hip_pitch_3" ctrlrange="-2.4696 2.4696" />
+    <position name="knee_pitch_3" joint="knee_pitch_3" ctrlrange="-2.4696 2.4696" />
+    <position name="hip_roll_4" joint="hip_roll_4" ctrlrange="-2.03 2.51" />
+    <position name="hip_pitch_4" joint="hip_pitch_4" ctrlrange="-2.3426 2.3426" />
+    <position name="knee_pitch_4" joint="knee_pitch_4" ctrlrange="-2.3426 2.3426" />
+  </actuator>
 </mujoco>
