@@ -25,6 +25,16 @@ class MujocoRobot:
 
         self.revolute_jnt_index = np.where(self.model.jnt_type==mujoco.mjtJoint.mjJNT_HINGE)[0].astype(np.int32)
         self.floating_jnt_index = np.where(self.model.jnt_type==mujoco.mjtJoint.mjJNT_FREE)[0].astype(np.int32)
+        self.set_ctrl_from_keyframe()
+
+        self.init_ctrl_ref = {}
+
+        itr = 0
+        for i in self.revolute_jnt_index:
+            self.init_ctrl_ref[self._joint_id2name[i]] = self.data.ctrl[itr]
+            itr = itr + 1
+
+
 
         self.wall = time.monotonic()
 
@@ -51,12 +61,20 @@ class MujocoRobot:
         Get body rotation matrix
         """
         return self.data.body(body_name).xmat.reshape([3, 3])
+    def set_relative_ctrl(self,name,val):
+        if isinstance(name, str):
+            index = self._actuator_name2id[name]
+            self.data.ctrl[index] = self.init_ctrl_ref[name] + val
+        elif isinstance(name, list) and isinstance(val, list):
+            for n, v in zip(name, val):
+                index = self._actuator_name2id[n]
+                self.data.ctrl[index] = self.init_ctrl_ref[n] + v
 
     def set_ctrl(self,name,val):
-        if isinstance(name, str):  # Individual name and value
+        if isinstance(name, str):
             index = self._actuator_name2id[name]
             self.data.ctrl[index] = val
-        elif isinstance(name, list) and isinstance(val, list):  # List of names and values
+        elif isinstance(name, list) and isinstance(val, list):
             for n, v in zip(name, val):
                 index = self._actuator_name2id[n]
                 self.data.ctrl[index] = v
@@ -100,8 +118,6 @@ if __name__ == "__main__":
         start = time.time()
         while viewer.is_running():
             t = time.time()
-
-            robot.set_ctrl('hip_roll_2', np.sin(t))
 
             robot.step()
 
