@@ -47,6 +47,8 @@ class MujocoRobot:
         
     def step(self):
         t = time.monotonic() - self.wall
+
+        # maintain real-time factor = 1
         while (self.data.time <= t):
             mujoco.mj_step(self.model, self.data, nstep=1)
 
